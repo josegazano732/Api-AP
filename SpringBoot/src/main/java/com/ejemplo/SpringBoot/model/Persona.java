@@ -25,6 +25,8 @@ public class Persona implements Serializable {
     private String sobre_mi;
     private String url_foto;
 
+    
+
     public int getId() {
         return id;
     }
