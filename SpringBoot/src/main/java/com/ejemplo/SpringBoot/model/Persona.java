@@ -2,7 +2,7 @@
 
 package com.ejemplo.SpringBoot.model;
 
-import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,14 +12,15 @@ import javax.persistence.Table;
 //Son las dos anotation que nos permiten agregar todos los getter y setter.
 @Entity
 @Table(name="persona")
-public class Persona implements Serializable {  
+public class Persona {  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String nombre;
     private String apellido;
     private String domicilio;
-    private String fechaNac;
+    private String fechanac;
     private String contacto;
     private String correo;
     private String sobre_mi;
@@ -27,13 +28,6 @@ public class Persona implements Serializable {
 
     
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -60,11 +54,11 @@ public class Persona implements Serializable {
     }
 
     public String getFechaNac() {
-        return fechaNac;
+        return fechanac;
     }
 
     public void setFechaNac(String fechaNac) {
-        this.fechaNac = fechaNac;
+        this.fechanac = fechaNac;
     }
 
     public String getContacto() {

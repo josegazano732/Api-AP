@@ -24,5 +24,5 @@ public class Controller {
         //return ListaPersonas;
         return persoServ.verPersonas();
     }
-  
-}
+
+    }

@@ -15,7 +15,7 @@ public class PersonaService{
     
 
     public List<Persona> verPersonas() {
-       return (List<Persona>) persoRepo.findAll();
+    return (List<Persona>) persoRepo.findAll();
     }
     
 }
