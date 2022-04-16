@@ -9,6 +9,7 @@ import com.ejemplo.SpringBoot.service.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,18 +37,18 @@ public class Controller {
         return persoServ.personasId(id);
     }
     
-    @PostMapping
+    @PostMapping("/nueva")
     public PersonaModel nuevaPersona(@Validated @RequestBody PersonaModel persona) {
         return persoServ.guardar(persona);
     }
     
-    @PutMapping("/{id}") //put facil
+    @PutMapping("/actualizar/{id}") //put facil
     public PersonaModel actualizarPersona(@Validated @RequestBody PersonaModel persona) {
         return persoServ.guardar(persona);
     }
 
 
-    @PutMapping("/dificil/{id}") //put dificil
+    @PutMapping("/modificar/{id}") //put dificil
     public ResponseEntity<PersonaModel> actualizarPersDificil(@PathVariable(value = "id") int id, @Validated @RequestBody PersonaModel persona) {
         if (id == persona.id()) {
             PersonaModel personaNueva = persoServ.guardar(persona);
@@ -57,5 +58,9 @@ public class Controller {
         }
     }
     
+    @DeleteMapping("borrar/{id}")
+    public void borrarPersona(@PathVariable int id){
+        persoServ.borrarPersona(id);
+    }
 
     }
