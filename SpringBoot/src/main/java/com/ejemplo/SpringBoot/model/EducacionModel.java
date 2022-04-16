@@ -24,6 +24,7 @@ public class EducacionModel implements Serializable{
     private String inicio;
     private String finalizado;
     private String url_logo;
+    private Integer persona_id;
 
     public Long getId() {
         return id;
@@ -64,6 +65,16 @@ public class EducacionModel implements Serializable{
     public void setUrl_logo(String url_logo) {
         this.url_logo = url_logo;
     }
+
+    public Integer getPersona_id() {
+        return persona_id;
+    }
+
+    public void setPersona_id(Integer persona_id) {
+        this.persona_id = persona_id;
+    }
+
+   
 
     
     
