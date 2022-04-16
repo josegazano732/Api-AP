@@ -38,4 +38,8 @@ public class EducacionService {
         return educRepo.save(educacion); // crea o actualiza
     }
     
+    public void borrarInstitucion(Long id){
+        educRepo.deleteById(id);
+    }
+    
 }
