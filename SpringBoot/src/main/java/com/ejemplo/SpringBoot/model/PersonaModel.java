@@ -3,6 +3,7 @@
 package com.ejemplo.SpringBoot.model;
 
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,10 +13,10 @@ import javax.persistence.Table;
 //Son las dos anotation que nos permiten agregar todos los getter y setter.
 @Entity
 @Table(name="persona")
-public class Persona {  
+public class PersonaModel implements Serializable {  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    public int id;
 
     private String nombre;
     private String apellido;
@@ -27,8 +28,8 @@ public class Persona {
     private String url_foto;
 
     
-
-
+    
+    
     public String getNombre() {
         return nombre;
     }
@@ -92,6 +93,13 @@ public class Persona {
     public void setUrl_foto(String url_foto) {
         this.url_foto = url_foto;
     }
+
+    public int id() {
+        return id;
+    }
+
+    
+        
    
 
 
