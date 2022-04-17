@@ -1,8 +1,8 @@
 
 package com.ejemplo.SpringBoot.controller;
 
-import com.ejemplo.SpringBoot.model.SoftskillModel;
-import com.ejemplo.SpringBoot.service.SoftskillService;
+import com.ejemplo.SpringBoot.model.HardskillModel;
+import com.ejemplo.SpringBoot.service.HardskillService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,40 +21,38 @@ import org.springframework.web.bind.annotation.RestController;
  * @author JLG
  */
 @RestController
-@RequestMapping("api/softskill")
-public class ControllerSoftskill {
+@RequestMapping("/api/hardskill")
+public class ControllerHardskill {
     
     @Autowired
-    private SoftskillService softServ;
+    private HardskillService hardServ;
     
     @GetMapping //Mapea todo los Skill.
-    public List<SoftskillModel> verSkill() {
+    public List<HardskillModel> verSkill() {
         //return ListaPersonas;
-        return softServ.verSkill();
+        return hardServ.verSkill();
     }
-    
     
     @GetMapping("/{id}") // Mapea skill por su ID.
-    public ResponseEntity<SoftskillModel> skillId(@PathVariable(value = "id") long id) {
-        return softServ.skillId(id);
+    public ResponseEntity<HardskillModel> skillId(@PathVariable(value = "id") long id) {
+        return hardServ.skillId(id);
     }
     
-    
      @PostMapping("/nueva")//Crea un Skill nuevo.
-    public SoftskillModel nuevaSkill(@Validated @RequestBody SoftskillModel skill) {
-        return softServ.guardar(skill);
+    public HardskillModel nuevaSkill(@Validated @RequestBody HardskillModel skill) {
+        return hardServ.guardar(skill);
     }
     
     
     @PutMapping("/actualizar/{id}") //put facil //Actualiza Skill por su ID.
-    public SoftskillModel actualizarSkill(@Validated @RequestBody SoftskillModel skill) {
-        return softServ.guardar(skill);
+    public HardskillModel actualizarSkill(@Validated @RequestBody HardskillModel skill) {
+        return hardServ.guardar(skill);
     }
     
     
     @DeleteMapping("borrar/{id}")//Borra Skill por su ID
     public void borrarSkill(@PathVariable long id){
-        softServ.borrarSkill(id);
+        hardServ.borrarSkill(id);
     }
-
+    
 }
