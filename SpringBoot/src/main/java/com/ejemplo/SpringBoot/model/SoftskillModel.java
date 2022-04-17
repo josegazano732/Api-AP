@@ -22,6 +22,7 @@ public class SoftskillModel implements Serializable{
     
     private String nombre_habilidad;
     private Double valor_hab;
+    private Integer persona_id;
 
     public Long getIdsoft_skill() {
         return idsoft_skill;
@@ -47,7 +48,13 @@ public class SoftskillModel implements Serializable{
         this.valor_hab = valor_hab;
     }
 
-   
-    
+    public Integer getPersona_id() {
+        return persona_id;
+    }
+
+    public void setPersona_id(Integer persona_id) {
+        this.persona_id = persona_id;
+    }
+
     
 }
