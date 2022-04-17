@@ -24,7 +24,9 @@ public class ExperienciaModel implements Serializable{
     private String fechainicio;
     private String fechafin;
     private String descripcion;
-    private String tipo_empleo;
+    private String url_logo;
+    private String tipo_empleo_id;
+    private Integer persona_id;
 
     public Long getId() {
         return id;
@@ -66,16 +68,29 @@ public class ExperienciaModel implements Serializable{
         this.descripcion = descripcion;
     }
 
-    public String getTipo_empleo() {
-        return tipo_empleo;
+    public String getUrl_logo() {
+        return url_logo;
     }
 
-    public void setTipo_empleo(String tipo_empleo) {
-        this.tipo_empleo = tipo_empleo;
+    public void setUrl_logo(String url_logo) {
+        this.url_logo = url_logo;
     }
-    
-    
 
- 
+    public String getTipo_empleo_id() {
+        return tipo_empleo_id;
+    }
+
+    public void setTipo_empleo_id(String tipo_empleo_id) {
+        this.tipo_empleo_id = tipo_empleo_id;
+    }
+
+    public Integer getPersona_id() {
+        return persona_id;
+    }
+
+    public void setPersona_id(Integer persona_id) {
+        this.persona_id = persona_id;
+    }
+
     
 }
