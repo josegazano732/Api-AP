@@ -18,9 +18,6 @@
 	<description>mi primer proyecto con  Spring Boot</description>
 	<properties>
 		<java.version>14</java.version>
-		<proyecto.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
