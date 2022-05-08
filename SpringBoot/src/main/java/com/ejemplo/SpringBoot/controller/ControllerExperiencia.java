@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author JLG
  */
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api/experiencia")
 public class ControllerExperiencia {
@@ -39,12 +41,12 @@ public class ControllerExperiencia {
     }
     
     @PostMapping("/nueva")
-    public ExperienciaModel nuevaExperiencia(@Validated @RequestBody ExperienciaModel experiencia) {
+    public ExperienciaModel nuevaExperiencia(@RequestBody ExperienciaModel experiencia) {
         return expeServ.guardar(experiencia);
     }
     
     @PutMapping("/actualizar/{id}") //put facil
-    public ExperienciaModel actualizarExperiencia(@Validated @RequestBody ExperienciaModel experiencia) {
+    public ExperienciaModel actualizarExperiencia(@RequestBody ExperienciaModel experiencia) {
         return expeServ.guardar(experiencia);
     }
     

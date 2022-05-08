@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author JLG
  */
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("api/softskill")
 public class ControllerSoftskill {
@@ -41,13 +43,13 @@ public class ControllerSoftskill {
     
     
      @PostMapping("/nueva")//Crea un Skill nuevo.
-    public SoftskillModel nuevaSkill(@Validated @RequestBody SoftskillModel skill) {
+    public SoftskillModel nuevaSkill(@RequestBody SoftskillModel skill) {
         return softServ.guardar(skill);
     }
     
     
     @PutMapping("/actualizar/{id}") //put facil //Actualiza Skill por su ID.
-    public SoftskillModel actualizarSkill(@Validated @RequestBody SoftskillModel skill) {
+    public SoftskillModel actualizarSkill(@RequestBody SoftskillModel skill) {
         return softServ.guardar(skill);
     }
     
