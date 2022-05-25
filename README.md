@@ -10,6 +10,6 @@ MYSQL_ADDON_URI=mysql://u1lbdwjiilafnjmu:edA7SaiSUWaOwN8b0PLa@bjuvdutbjimmruvj1y
 
 --------------------------------
 paso 1: heroku git:remote -a apiportfolio-ap
-paso 2: git add .
+paso 2: git add 
 paso 3: git commit -am "Se agrego CrossOrigins JLG"
 paso 4: git push heroku master

@@ -6,6 +6,7 @@ import com.ejemplo.SpringBoot.service.SoftskillService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,25 +36,25 @@ public class ControllerSoftskill {
         return softServ.verSkill();
     }
     
-    
+    @Secured({"ROLE_ADMIN","ROLE_USER"})
     @GetMapping("/{id}") // Mapea skill por su ID.
     public ResponseEntity<SoftskillModel> skillId(@PathVariable(value = "id") long id) {
         return softServ.skillId(id);
     }
     
-    
-     @PostMapping("/nueva")//Crea un Skill nuevo.
+    @Secured("ROLE_ADMIN")
+    @PostMapping("/nueva")//Crea un Skill nuevo.
     public SoftskillModel nuevaSkill(@RequestBody SoftskillModel skill) {
         return softServ.guardar(skill);
     }
     
-    
+    @Secured("ROLE_ADMIN")
     @PutMapping("/actualizar/{id}") //put facil //Actualiza Skill por su ID.
     public SoftskillModel actualizarSkill(@RequestBody SoftskillModel skill) {
         return softServ.guardar(skill);
     }
     
-    
+    @Secured("ROLE_ADMIN")
     @DeleteMapping("borrar/{id}")//Borra Skill por su ID
     public void borrarSkill(@PathVariable long id){
         softServ.borrarSkill(id);

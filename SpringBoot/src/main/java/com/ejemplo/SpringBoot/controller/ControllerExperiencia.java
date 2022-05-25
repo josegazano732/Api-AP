@@ -6,6 +6,7 @@ import com.ejemplo.SpringBoot.service.ExperienciaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,22 +35,25 @@ public class ControllerExperiencia {
         //return ListaExperiencia;
         return expeServ.verExperiencia();
     }
-    
+    @Secured("ROLE_ADMIN")
     @GetMapping("/{id}")
     public ResponseEntity<ExperienciaModel> experienciaId(@PathVariable(value = "id") long id) {
         return expeServ.experienciaId(id);
     }
     
+    @Secured("ROLE_ADMIN")
     @PostMapping("/nueva")
     public ExperienciaModel nuevaExperiencia(@RequestBody ExperienciaModel experiencia) {
         return expeServ.guardar(experiencia);
     }
     
+    @Secured("ROLE_ADMIN")
     @PutMapping("/actualizar/{id}") //put facil
     public ExperienciaModel actualizarExperiencia(@RequestBody ExperienciaModel experiencia) {
         return expeServ.guardar(experiencia);
     }
     
+    @Secured("ROLE_ADMIN")
     @DeleteMapping("borrar/{id}")
     public void borrarExperiencia(@PathVariable long id){
         expeServ.borrarexperiencia(id);
