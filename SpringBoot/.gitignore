@@ -28,7 +28,13 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+application.properties
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 README.md
+=======
+application.properties
+
+>>>>>>> master

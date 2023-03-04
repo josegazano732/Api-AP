@@ -1,8 +1,11 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.ejemplo.SpringBoot.controller;
 
-import com.ejemplo.SpringBoot.model.EducacionModel;
-import com.ejemplo.SpringBoot.service.EducacionService;
+import com.ejemplo.SpringBoot.model.ProyectoModel;
+import com.ejemplo.SpringBoot.service.ProyectoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,43 +21,47 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = { "https://ap-jlg.web.app"})
+/**
+ *
+ * @author JLG
+ */
+@CrossOrigin(origins = { "https://ap-jlg.web.app" })
 @RestController
-@RequestMapping("/api/educacion")
-public class ControllerEducacion {
+@RequestMapping("api/proyecto")
+public class ControllerProyecto {
     
     @Autowired
-    private EducacionService educServ;
+    private ProyectoService proyecServ;
     
     @GetMapping
-    public List<EducacionModel> verInstitucion() {
+    public List<ProyectoModel> verProyecto() {
         //return ListaPersonas;
-        return educServ.verInstitucion();
+        return proyecServ.verProyecto();
     }
     @Secured({"ROLE_ADMIN","ROLE_USER"})
     @GetMapping("/{id}")
-    public ResponseEntity<EducacionModel> EducacionId(@PathVariable(value = "id") Long id) {
-        return educServ.educacionId(id);
+    public ResponseEntity<ProyectoModel> ProyectoId(@PathVariable(value = "id") Long id) {
+        return proyecServ.proyectoId(id);
     }
     
     @Secured("ROLE_ADMIN")
     @PostMapping("/nueva")
-    public EducacionModel nuevaInstitucion(@RequestBody EducacionModel educacion) {
-        return educServ.guardar(educacion);
+    public ProyectoModel nuevaProyecto(@RequestBody ProyectoModel proyecto) {
+        return proyecServ.guardar(proyecto);
     }
-     
+    
     @Secured("ROLE_ADMIN")
     @PutMapping("/actualizar/{id}") //put facil
-    public EducacionModel actualizarEducacion(@RequestBody EducacionModel educacion) {
-        return educServ.guardar(educacion);
+    public ProyectoModel actualizarProyecto(@RequestBody ProyectoModel proyecto) {
+        return proyecServ.guardar(proyecto);
     }
-
+    
     @Secured("ROLE_ADMIN")
     @PutMapping("/modificar/{id}") //put dificil
-    public ResponseEntity<EducacionModel> actualizarEducacionDos(@PathVariable(value = "id") long id, @Validated @RequestBody EducacionModel educacion) {
-        if (id == educacion.getId()) {
-            EducacionModel educacionNueva = educServ.guardar(educacion);
-            return ResponseEntity.ok().body(educacionNueva);
+    public ResponseEntity<ProyectoModel> actualizarProyectoDos(@PathVariable(value = "id") long id, @Validated @RequestBody ProyectoModel proyecto) {
+        if (id == proyecto.getId()) {
+            ProyectoModel proyectoNueva = proyecServ.guardar(proyecto);
+            return ResponseEntity.ok().body(proyectoNueva);
         } else {
             return ResponseEntity.badRequest().build();
         }
@@ -62,8 +69,8 @@ public class ControllerEducacion {
     
     @Secured("ROLE_ADMIN")
     @DeleteMapping("borrar/{id}")
-    public void borrarInstitucion(@PathVariable long id){
-        educServ.borrarInstitucion(id);
+    public void borrarProyecto(@PathVariable long id){
+        proyecServ.borrarProyecto(id);
     }
     
 }
